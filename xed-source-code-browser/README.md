@@ -50,7 +50,7 @@ Key options (defaults):
 Install:
 ```bash
 sudo apt update
-sudo apt install -y ctags
+sudo apt install -y universal-ctags
 ```
 
 ### Copy folder

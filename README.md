@@ -105,7 +105,7 @@ sudo apt install -y gir1.2-gtksource-3.0
 sudo apt install -y gir1.2-ggit-1.0
 
 # xed-source-code-browser
-sudo apt install -y ctags
+sudo apt install -y universal-ctags
 
 # xed-terminal
 sudo apt install -y libvte-2.91-0 gir1.2-vte-2.91
