@@ -6,6 +6,7 @@ This repository is organized as **one folder per plugin**. Each folder contains 
 
 ## Included plugins
 
+- **xed-find-in-files**: searches occurrences of an expression inside all files from a folder (**grouped by file**).
 - **xed-git**: highlights lines changed since the last commit (**green=added, orange=modified, red=removed**).
 - **xed-indentation-guides**: **VS Code-like indentation guides** inside the editor based on leading whitespace and tab width.
 - **xed-quick-highlight**: highlights occurrences of the currently selected text.
@@ -49,6 +50,7 @@ mkdir -p ~/.local/share/xed/plugins
 Copy the plugin folder(s) you want:
 
 ```bash
+cp -r xed-find-in-files ~/.local/share/xed/plugins/
 cp -r xed-git ~/.local/share/xed/plugins/
 cp -r xed-indentation-guides ~/.local/share/xed/plugins/
 cp -r xed-quick-highlight ~/.local/share/xed/plugins/
@@ -65,6 +67,7 @@ Enable the plugins and restart Xed:
 Remove the folder(s) and restart Xed:
 
 ```bash
+rm -rf ~/.local/share/xed/plugins/xed-find-in-files
 rm -rf ~/.local/share/xed/plugins/xed-git
 rm -rf ~/.local/share/xed/plugins/xed-indentation-guides
 rm -rf ~/.local/share/xed/plugins/xed-quick-highlight
@@ -83,6 +86,7 @@ Common (all plugins):
 - `gir1.2-gtk-3.0`
 
 Plugin-specific:
+- **xed-find-in-files**: optional `ripgrep` (recommended: faster searches), optional `git`
 - **xed-git**: `gir1.2-ggit-1.0` + `gir1.2-gtksource-3.0`
 - **xed-indentation-guides**: `gir1.2-gtksource-3.0`
 - **xed-quick-highlight**: `gir1.2-gtksource-3.0`
@@ -109,6 +113,9 @@ sudo apt install -y universal-ctags
 
 # xed-terminal
 sudo apt install -y libvte-2.91-0 gir1.2-vte-2.91
+
+# xed-find-in-files (optional but recommended)
+sudo apt install -y ripgrep
 ```
 
 > Package names may vary slightly on other distributions.
@@ -132,12 +139,19 @@ python3 -c "import gi; gi.require_version('Ggit','1.0'); from gi.repository impo
 
 # ctags (xed-source-code-browser)
 ctags --version
+
+# ripgrep (xed-find-in-files, optional)
+rg --version
 ```
 
 ## Debug
 
 Run Xed from a terminal with the plugin debug variable:
 
+- xed-find-in-files:
+  ```bash
+  XED_DEBUG_FIND_IN_FILES=1 xed
+  ```
 - xed-git:
   ```bash
   XED_DEBUG_GIT=1 xed
@@ -165,7 +179,7 @@ Run Xed from a terminal with the plugin debug variable:
 
 ## Credits
 
-- Developed and maintained for Xed by **Gabriell Araujo (2025)**.
+- Developed and maintained for Xed by **Gabriell Araujo (2025-2026)**.
 - **xed-git** is based on the original **gedit Git plugin** by **Ignacio Casal Quinteiro** and **Garrett Regier**.
 - **xed-quick-highlight** is based on the original **gedit Quick Highlight plugin** by **Martin Blanchard**.
 - **xed-source-code-browser** is based on the original **Pluma Source Code Browser plugin** by **Micah Carrick** and **MATE Developers**.
@@ -178,6 +192,7 @@ This repository contains **multiple licenses** (per-plugin). You can also rely o
 
 | Plugin folder | SPDX license |
 |---|---|
+| `xed-find-in-files` | GPL-2.0-or-later |
 | `xed-git` | GPL-2.0-or-later |
 | `xed-indentation-guides` | GPL-2.0-or-later |
 | `xed-quick-highlight` | GPL-2.0-or-later |
@@ -188,6 +203,9 @@ This repository contains **multiple licenses** (per-plugin). You can also rely o
 > The full license text for each plugin is available in each plugin folder (see the `LICENSE` file).
 
 ## Screenshots
+
+### xed-find-in-files
+![xed-find-in-files](screenshots/xed-find-in-files.png)
 
 ### xed-git
 ![xed-git](screenshots/xed-git.png)

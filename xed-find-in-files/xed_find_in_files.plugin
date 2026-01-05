@@ -1,0 +1,9 @@
+[Plugin]
+Loader=python3
+Module=xed_find_in_files
+IAge=3
+Name=Xed Find in Files
+Description=Searches occurrences of an expression inside all files from a folder.
+Authors=Gabriell Araujo
+Copyright=Copyright (c) 2026 Gabriell Araujo
+Website=https://github.com/gabriellaraujocoding/xed-extra-plugins
